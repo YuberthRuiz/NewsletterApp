@@ -3,6 +3,7 @@
 import { useState } from 'react'
 import { useRouter } from 'next/navigation'
 import Link from 'next/link'
+import { supabase } from '@/utils/supabase'
 
 export default function LoginPage() {
   const [formData, setFormData] = useState({
@@ -19,17 +20,15 @@ export default function LoginPage() {
     setError('')
 
     try {
-      const response = await fetch('/api/auth/login', {
-        method: 'POST',
-        headers: { 'Content-Type': 'application/json' },
-        body: JSON.stringify(formData),
+      const { error } = await supabase.auth.signInWithPassword({
+        email: formData.email,
+        password: formData.password,
       })
 
-      if (response.ok) {
-        router.push('/dashboard/bookings')
+      if (error) {
+        setError(error.message)
       } else {
-        const data = await response.json()
-        setError(data.error)
+        router.push('/dashboard/bookings')
       }
     } catch (err) {
       setError('An error occurred')
