@@ -26,7 +26,7 @@ export default function LoginPage() {
       })
 
       if (response.ok) {
-        router.push('/dashboard')
+        router.push('/dashboard/bookings')
       } else {
         const data = await response.json()
         setError(data.error)
