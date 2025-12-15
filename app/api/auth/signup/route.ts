@@ -1,4 +1,4 @@
-import { createServerSupabaseClient } from '@/utils/supabase-server'
+import { createAdminSupabaseClient } from '@/utils/supabase-server'
 import { NextRequest, NextResponse } from 'next/server'
 
 export async function POST(request: NextRequest) {
@@ -8,7 +8,7 @@ export async function POST(request: NextRequest) {
     return NextResponse.json({ error: 'Missing required fields' }, { status: 400 })
   }
 
-  const supabase = createServerSupabaseClient()
+  const supabase = createAdminSupabaseClient()
 
   const { data, error } = await supabase.auth.signUp({
     email,
@@ -17,11 +17,6 @@ export async function POST(request: NextRequest) {
 
   if (error) {
     return NextResponse.json({ error: error.message }, { status: 400 })
-  }
-
-  // Set the session for the client to authenticate the insert
-  if (data.session) {
-    await supabase.auth.setSession(data.session)
   }
 
   // Create creator profile
