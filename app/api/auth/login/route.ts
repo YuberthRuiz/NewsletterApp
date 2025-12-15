@@ -1,4 +1,4 @@
-import { createAdminSupabaseClient } from '@/utils/supabase-server'
+import { createServerSupabaseClient } from '@/utils/supabase-server'
 import { NextRequest, NextResponse } from 'next/server'
 
 export async function POST(request: NextRequest) {
@@ -8,7 +8,7 @@ export async function POST(request: NextRequest) {
     return NextResponse.json({ error: 'Email and password are required' }, { status: 400 })
   }
 
-  const supabase = createAdminSupabaseClient()
+  const supabase = createServerSupabaseClient()
 
   const { data, error } = await supabase.auth.signInWithPassword({
     email,
