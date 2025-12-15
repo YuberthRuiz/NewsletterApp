@@ -57,6 +57,15 @@ export default function BookingsPage() {
     <div className="p-6 max-w-7xl mx-auto">
       <h1 className="text-2xl font-bold mb-6">Booked Ads Management</h1>
 
+      <nav className="mb-6">
+        <ul className="flex space-x-4">
+          <li><a href="/dashboard/bookings" className="text-blue-600 hover:text-blue-800">Bookings</a></li>
+          <li><a href="/dashboard/calendar" className="text-blue-600 hover:text-blue-800">Calendar</a></li>
+          <li><a href="/dashboard/profile" className="text-blue-600 hover:text-blue-800">Profile</a></li>
+          <li><a href="/dashboard/slot-types" className="text-blue-600 hover:text-blue-800">Slot Types</a></li>
+        </ul>
+      </nav>
+
       {bookings.length === 0 ? (
         <p>No bookings found.</p>
       ) : (

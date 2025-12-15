@@ -162,6 +162,15 @@ export default function CalendarPage() {
   return (
     <div className="p-6 max-w-6xl mx-auto">
       <h1 className="text-2xl font-bold mb-6">Calendar</h1>
+
+      <nav className="mb-6">
+        <ul className="flex space-x-4">
+          <li><a href="/dashboard/bookings" className="text-blue-600 hover:text-blue-800">Bookings</a></li>
+          <li><a href="/dashboard/calendar" className="text-blue-600 hover:text-blue-800">Calendar</a></li>
+          <li><a href="/dashboard/profile" className="text-blue-600 hover:text-blue-800">Profile</a></li>
+          <li><a href="/dashboard/slot-types" className="text-blue-600 hover:text-blue-800">Slot Types</a></li>
+        </ul>
+      </nav>
       <div className="mb-4">
         <label className="block text-sm font-medium mb-2">Select Slot Type to Add</label>
         <select

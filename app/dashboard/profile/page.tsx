@@ -82,6 +82,15 @@ export default function ProfilePage() {
     <div className="p-6 max-w-2xl mx-auto">
       <h1 className="text-2xl font-bold mb-6">Profile Settings</h1>
 
+      <nav className="mb-6">
+        <ul className="flex space-x-4">
+          <li><a href="/dashboard/bookings" className="text-blue-600 hover:text-blue-800">Bookings</a></li>
+          <li><a href="/dashboard/calendar" className="text-blue-600 hover:text-blue-800">Calendar</a></li>
+          <li><a href="/dashboard/profile" className="text-blue-600 hover:text-blue-800">Profile</a></li>
+          <li><a href="/dashboard/slot-types" className="text-blue-600 hover:text-blue-800">Slot Types</a></li>
+        </ul>
+      </nav>
+
       <form onSubmit={handleSubmit} className="space-y-6">
         <div>
           <label className="block text-sm font-medium mb-2">Newsletter Name</label>
