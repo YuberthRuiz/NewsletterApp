@@ -19,6 +19,11 @@ export async function POST(request: NextRequest) {
     return NextResponse.json({ error: error.message }, { status: 400 })
   }
 
+  // Set the session for the client to authenticate the insert
+  if (data.session) {
+    await supabase.auth.setSession(data.session)
+  }
+
   // Create creator profile
   const { error: profileError } = await supabase
     .from('creators')
